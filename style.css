@@ -1,0 +1,123 @@
+html{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+ul{
+    list-style-type: none;
+    position: relative;
+    display: inline-block;
+    left: 60vh;
+}
+.header{
+    font-size: 5vh;
+    color: white;
+    font-family: IntegralCF;
+    width: 80vh;
+    display: inline-flex;
+}
+
+.header h1:hover{
+    color:#00BC00;
+    font-family: IntegralCF;
+    width: 80vh;
+    display: inline-flex;
+
+}
+
+.header a{
+    color: #00BC00;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 100;
+    display: inline-block;
+
+}
+
+.header a:hover{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 100;
+    display: inline-block;
+
+}
+
+
+.main{
+    font-family: IntegralCF;
+}
+
+.main h2{
+    font-family: IntegralCF;
+    color: white;
+    font-size: 6vh;
+    padding-left: 10vh;
+    width: 60vh;
+
+}
+
+@font-face {
+    font-family: 'IntegralCF'; /* You can give this any name */
+    src: url('Fontspring-DEMO-integralcf-bold.otf') format('opentype'); /* Path to the font file */
+  }
+  
+span{
+    color: #00BC00;
+    transition: transform 0.5s ease-in-out; 
+}
+
+span:hover{
+    zoom: 30px;
+    transform: scale(1.2); /* Zooms in by 20% */
+}
+
+.svg-wrapper img{
+    display: inline;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.svg-wrapper {
+    position: absolute;
+    top: 90vh;
+    left: 65vh;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 320px;  
+    display: block;
+  }
+  .shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    stroke: #00BC00;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+  }
+  .text {
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 8px;
+    color: #fff;
+    top: -48px;
+    position: relative;
+    pointer-events: none;
+  }
+  .shape:hover {
+    stroke-width: 2px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+  }
+
+  #anime{
+    position: relative;
+    top: -50vh;
+    left: 90vh;
+  }
+
+  #anime img:hover{
+    border-color: rgb(39, 207, 39);
+  }

@@ -1,0 +1,10 @@
+<script>
+  // Load the Lottie animation
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-animation'), // The container element
+    renderer: 'svg', // Render as SVG for scalability
+    loop: true, // Loop the animation (set to false if not needed)
+    autoplay: true, // Autoplay the animation when loaded
+    path: 'animation.json' // Path to the JSON file
+  });
+</script>

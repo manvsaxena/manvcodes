@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANVCODES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>MANVCODES</h1>
+        <ul>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="Resume_Self.pdf">RESUME</a></li>
+            <li><a href="project.html">PROJECT</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <h2>A <span>SOFTWARE</span> DEVELOPER<br>
+            <span>UI/UX</span> DESIGNER<br>
+            CSE CORE<span> ENGINEER</span>
+        </h2>
+        <div class="box">
+            <img src="images/Leonardo_Phoenix_A_stylish_anime_boy_with_a_mesmerizing_green_1-removebg-preview.png"
+                id="anime">
+        </div>
+        <div id="robot-animation" style="width: 800px; height: 600px;"></div>
+        <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                <rect class="shape" height="60" width="320" />
+                <div class="text">
+                    <a href="/Users/manavsaxena/Downloads/Resume_Self.pdf"><img src="images/google-docs.png"
+                            alt="Google Docs"></a>
+                    <a href="images/laptop.png"><img src="images/laptop.png" alt="Laptop"></a>
+                    <a href="Resume_Self.pdf"><img src="images/user.png" alt="User"></a>
+                </div>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Include Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+    <!-- Three.js Robot Animation Code -->
+    <script>
+        // Set up the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('robot-animation').appendChild(renderer.domElement);
+
+        // Create a basic geometry for the robot body and limbs
+        const bodyGeometry = new THREE.BoxGeometry(1, 2, 0.5);
+        const limbGeometry = new THREE.BoxGeometry(0.25, 1, 0.25);
+        const headGeometry = new THREE.BoxGeometry(0.75, 0.75, 0.75);
+        const material = new THREE.MeshStandardMaterial({ color: 0x808080 });
+
+        // Create body parts
+        const body = new THREE.Mesh(bodyGeometry, material);
+        body.position.y = 1;
+        scene.add(body);
+
+        const head = new THREE.Mesh(headGeometry, material);
+        head.position.y = 2.5;
+        scene.add(head);
+
+        const leftArm = new THREE.Mesh(limbGeometry, material);
+        leftArm.position.set(-0.75, 1, 0);
+        scene.add(leftArm);
+
+        const rightArm = new THREE.Mesh(limbGeometry, material);
+        rightArm.position.set(0.75, 1, 0);
+        scene.add(rightArm);
+
+        const leftLeg = new THREE.Mesh(limbGeometry, material);
+        leftLeg.position.set(-0.3, -0.5, 0);
+        scene.add(leftLeg);
+
+        const rightLeg = new THREE.Mesh(limbGeometry, material);
+        rightLeg.position.set(0.3, -0.5, 0);
+        scene.add(rightLeg);
+
+        // Add lighting
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Simple animation for the arms
+            leftArm.rotation.z = Math.sin(Date.now() * 0.001) * 0.5;
+            rightArm.rotation.z = -Math.sin(Date.now() * 0.001) * 0.5;
+
+            // Simple head bobbing animation
+            head.position.y = 2.5 + Math.sin(Date.now() * 0.002) * 0.1;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+
+</html>
