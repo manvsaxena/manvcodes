@@ -1,27 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap');
+
 html{
-    background-color: black;
-    width: 100%;
-    height: 100%;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  font-family: Raleway, sans-serif;
 }
+.text-container {
+  background: #000;
+  width: 100vw;
+  height: 100vh;
+  font-weight: bold;
+  font-size: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-container > div {
+  animation: come2life linear 10s infinite;
+  transform-origin: center center;
+  opacity: 0;
+  width: 250px;
+  height: 200px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.text-container > div:nth-child(1) {
+  left: 30vw;
+  top: 30vh;
+  animation-delay: 0s;
+}
+
+.text-container > div:nth-child(2) {
+  left: 70vw;
+  top: 30vh;
+  animation-delay: 4s;
+}
+
+.text-container > div:nth-child(3) {
+  left: 50vw;
+  top: 50vh;
+  animation-delay: 8s;
+}
+
+.text-container > div:nth-child(4) {
+  left: 30vw;
+  top: 70vh;
+  animation-delay: 6s;
+}
+
+.text-container > div:nth-child(5) {
+  left: 70vw;
+  top: 70vh;
+  animation-delay: 2s;
+}
+
+@keyframes come2life {
+  0% {
+      transform: scale3d(0,0,1) rotate(0.02deg);
+      opacity: 0;
+      filter: blur(10px);
+  }
+  25% {
+      transform: scale3d(1,1,1) rotate(0.02deg);
+      opacity: 1;
+      filter: blur(0px);
+  }
+  40% {
+      opacity: 1;
+      filter: blur(0px);
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+      transform: scale3d(4,4,1) rotate(0.02deg);
+      filter: blur(10px);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.string {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  animation: move 4s infinite;
+}
+
+.greeting {
+  animation: white-out 5s infinite;
+}
+
+.closure::after {
+  content: '';
+  position: absolute;
+  background: #282c34;
+  transform: translate(-45vmin, -24.5vmin);
+}
+
+.closure::before {
+  content: '';
+  position: absolute;
+  background: #282c34;
+  transform: translate(-40vmin, 5vmin);
+}
+
+.en {
+  color: #fa8231;
+}
+
+.es {
+  color: white;
+}
+
+.de {
+  color: #c678dd;
+}
+
+.it {
+  color: #a9b0bd;
+}
+
+@keyframes move {
+  25% {
+    transform: translatey(-5.8vmin);
+    opacity: 1;
+  }
+  50% {
+    transform: translatey(-11vmin);
+  }
+  75% {
+    transform: translatey(-16.5vmin);
+  }
+}
+body::before {
+  --size: 120px;
+  --line: hsl(0 0% 100% / 0.13);
+  --thickness: 2px;
+  --offset: 60px;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(transparent 0 calc(var(--size) - var(--thickness)), var(--line) calc(var(--size) - var(--thickness)) var(--size)) var(--offset) var(--offset) / var(--size) var(--size),
+    linear-gradient(90deg, transparent 0 calc(var(--size) - var(--thickness)), var(--line) calc(var(--size) - var(--thickness)) var(--size)) var(--offset) var(--offset) / var(--size) var(--size);
+}
+
+:root {
+  --primary-bg: linear-gradient(var(--primary), var(--primary));
+}
+
+[data-gradient=true] {
+  --primary-bg: conic-gradient(from var(--angle, 180deg) at 50% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+}
+
+h2 {
+  font-weight: 120;
+  line-height: 1.07;
+  resize: both;
+  overflow: hidden;
+  width: 10ch;
+  background:
+    var(--primary-bg),
+    linear-gradient(var(--secondary), var(--secondary)),
+    linear-gradient(var(--secondary) 0 calc((var(--highlight) + var(--spread)) * 1lh), transparent);
+  background-repeat: no-repeat;
+  background-size: 
+    100% calc(var(--highlight) * 1lh),
+    100% calc((var(--highlight) + var(--spread)) * 1lh),
+    100% 100%;
+  background-clip: text;
+  color: transparent;
+  text-wrap: balance;
+  font-size: clamp(2rem, 1rem + 4vw, 12rem);
+  display: inline-block;
+  margin: 0;
+}
+
+.wrapper {
+  padding: 2rem;
+  background: var(--bg);
+  position: relative;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  @property --angle {
+    inherits: true;
+    initial-value: 180deg;
+    syntax: '<angle>';
+  }
+  @keyframes rotate {
+    to { --angle: 540deg; }
+  }
+  [data-gradient=true][data-animate=true] {
+    animation: rotate 6s infinite linear;
+  }
+}
+
 ul{
     list-style-type: none;
     position: relative;
     display: inline-block;
-    left: 60vh;
+    left: 150vh;
+    top: -30px;
+
 }
+
 .header{
     font-size: 5vh;
     color: white;
-    font-family: IntegralCF;
-    width: 80vh;
-    display: inline-flex;
+    width: 30px;
 }
 
+.header h1{
+  font-size: 60px;
+  position: relative;
+  top: 30px;
+  left: 20vh;
+}
 .header h1:hover{
     color:#00BC00;
-    font-family: IntegralCF;
-    width: 80vh;
-    display: inline-flex;
 
 }
 
@@ -41,35 +246,6 @@ ul{
     font-weight: 100;
     display: inline-block;
 
-}
-
-
-.main{
-    font-family: IntegralCF;
-}
-
-.main h2{
-    font-family: IntegralCF;
-    color: white;
-    font-size: 6vh;
-    padding-left: 10vh;
-    width: 60vh;
-
-}
-
-@font-face {
-    font-family: 'IntegralCF'; /* You can give this any name */
-    src: url('Fontspring-DEMO-integralcf-bold.otf') format('opentype'); /* Path to the font file */
-  }
-  
-span{
-    color: #00BC00;
-    transition: transform 0.5s ease-in-out; 
-}
-
-span:hover{
-    zoom: 30px;
-    transform: scale(1.2); /* Zooms in by 20% */
 }
 
 .svg-wrapper img{
@@ -112,12 +288,27 @@ span:hover{
     stroke-dasharray: 760;
   }
 
-  #anime{
-    position: relative;
-    top: -50vh;
-    left: 90vh;
+  .about{
+    color: white;
+    font-family: IntegralCF;
+    text-align: center;
   }
 
-  #anime img:hover{
-    border-color: rgb(39, 207, 39);
+  .about h1:hover{
+    color: #00BC00;
+  }
+
+  .about img{
+    border-radius: 20px;
+  }
+
+  .about img:hover{
+    border-color: #00BC00;
+    animation: backwards;
+    animation-duration: 30s;
+  }
+
+  .about p {
+    padding-left: 40vh;
+    padding-right: 40vh;
   }
